@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+    <script id="MathJax-script" src="{{ url_for('static', path='/mathjax/es5/tex-chtml.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center p-12">
+    <h1 class="text-xl text-center font-bold">Уравнение:</h1>
+    $${{ equation }}$$
+    
+    <button
+        hx-on:click="htmx.toggleClass(htmx.find('#solution'), 'hidden');"
+        class="bg-blue-500 text-white font-medium rounded-md p-2 mt-4"
+    >
+        Покажи решение
+    </button>
+
+    <div id="solution" class="hidden">
+        $${{ roots }}$$
+    </div>
+
+{% endblock %}

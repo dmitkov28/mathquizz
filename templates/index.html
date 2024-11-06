@@ -1,5 +1,10 @@
-<link href="{{url_for('static', path='/css/app.css')}}" rel="stylesheet" />
-<script src="{{url_for('static', path='/htmx/htmx.min.js')}}"></script>
-<script id="MathJax-script" src="{{url_for('static', path='/mathjax/es5/tex-chtml.js')}}"></script>
-<h1 class="font-bold text-2xl text-center">Hello World</h1>
-
+{% extends 'base.html' %}
+{% block content %}
+<div class="min-h-screen flex justify-center items-center border border-red-200">
+    <div>
+        <a href="/calculus-1" class="border border-gray-200 p-8 rounded-md shadow-md hover:shadow-lg" href="#">
+            Диференциално смятане
+        </a>
+    </div>
+</div>
+{% endblock %}
