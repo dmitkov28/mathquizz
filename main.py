@@ -12,7 +12,7 @@ app.add_middleware(GZipMiddleware)
 templates = Jinja2Templates(directory="templates")
 
 
-@app.get("/hello")
+@app.get("/")
 def main(request: Request):
     return templates.TemplateResponse(request=request, name="index.html")
 
