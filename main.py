@@ -3,7 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.gzip import GZipMiddleware
 
-from _math.solver import do_math
+from _math.generator import FuncGenerator
 
 app = FastAPI()
 
@@ -19,10 +19,11 @@ def main(request: Request):
 
 @app.get("/calculus-1")
 def calculus(request: Request):
-    equation, rs = do_math()
+    func_generator = FuncGenerator()
+    roots, poly_latex = func_generator.generate_polynomial_equation(4)
 
     return templates.TemplateResponse(
         request=request,
         name="calculus.html",
-        context={"equation": equation, "roots": rs},
+        context={"equation": poly_latex, "roots": roots},
     )
