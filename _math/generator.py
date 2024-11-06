@@ -21,4 +21,11 @@ class FuncGenerator:
         for root in roots:
             poly *= x - root
 
-        return (set(roots), sympy.latex(sympy.Eq(sympy.expand(poly), 0)))
+        f_x = sympy.expand(poly)
+        f_prime_x = sympy.latex(sympy.diff(poly).simplify())
+
+        return (
+            set(roots),
+            f"f(x) = {sympy.latex(f_x)}",
+            f"f'(x) = {f_prime_x}",
+        )

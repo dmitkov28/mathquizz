@@ -20,10 +20,10 @@ def main(request: Request):
 @app.get("/calculus-1")
 def calculus(request: Request):
     func_generator = FuncGenerator()
-    roots, poly_latex = func_generator.generate_polynomial_equation(4)
+    roots, poly_latex, derivative = func_generator.generate_polynomial_equation(4)
 
     return templates.TemplateResponse(
         request=request,
         name="calculus.html",
-        context={"equation": poly_latex, "roots": roots},
+        context={"equation": poly_latex, "roots": roots, "derivative": derivative},
     )
